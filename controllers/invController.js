@@ -150,4 +150,29 @@ invCont.addInventory = async function (req, res) {
   }
 };
 
+/* ***************************
+ *  Build vehicle detail view
+ * ************************** */
+invCont.buildVehicleDetail = async function (req, res, next) {
+  const inv_id = req.params.inv_id;
+  const vehicle = await invModel.getVehicleById(inv_id);
+  
+  if (!vehicle) {
+    const err = new Error('Vehicle not found');
+    err.status = 404;
+    return next(err);
+  }
+  
+  const detail = await utilities.buildVehicleDetail(vehicle);
+  let nav = await utilities.getNav();
+  const title = `${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}`;
+  
+  res.render("./inventory/detail", {
+    title,
+    nav,
+    detail,
+    errors: null,
+  });
+};
+
 module.exports = invCont;

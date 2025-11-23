@@ -54,6 +54,19 @@ app.get("/", baseController.buildHome);
 // Inventory routes
 app.use("/inv", inventoryRoute);
 
+// Error route for testing
+app.use("/error", require("./routes/errorRoute"));
+
+/* ***********************
+ * Error Handling
+ *************************/
+// 404 Handler (must be after all other routes)
+const errorHandler = require("./utilities/error-handler");
+app.use(errorHandler.notFound);
+
+// Error Handler (must be last)
+app.use(errorHandler.errorHandler);
+
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file

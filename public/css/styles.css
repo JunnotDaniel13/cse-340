@@ -523,6 +523,160 @@ button[type="submit"]:active {
   margin-top: 0.5rem;
 }
 
+/* ===================================
+   Vehicle Detail View
+   =================================== */
+
+.vehicle-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.vehicle-detail-container h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--color-brand);
+  margin-bottom: 2rem;
+}
+
+.vehicle-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(22, 20, 58, 0.1);
+}
+
+.vehicle-detail-image {
+  flex: 1;
+}
+
+.vehicle-detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-detail-info {
+  flex: 1;
+}
+
+.vehicle-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-brand-light);
+  margin: 0 0 1.5rem;
+}
+
+.vehicle-specs {
+  background: var(--color-panel);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+.vehicle-specs p {
+  margin: 0.75rem 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.vehicle-specs strong {
+  color: var(--color-brand);
+  font-weight: 600;
+  display: inline-block;
+  min-width: 90px;
+}
+
+.vehicle-description {
+  margin-top: 1.5rem;
+}
+
+.vehicle-description h3 {
+  color: var(--color-brand);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.vehicle-description p {
+  line-height: 1.8;
+  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+/* ===================================
+   Error Page Styles
+   =================================== */
+
+.error-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.error-container h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-brand);
+  margin-bottom: 1.5rem;
+}
+
+.error-message {
+  background: #fff3cd;
+  border: 2px solid #856404;
+  color: #856404;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  margin: 2rem 0;
+}
+
+.error-message p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.error-actions {
+  margin-top: 2rem;
+}
+
+.error-actions p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.error-actions ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-actions li {
+  margin: 0;
+}
+
+.error-actions a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-brand-light);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 12px rgba(0, 169, 217, 0.3);
+}
+
+.error-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 169, 217, 0.4);
+}
+
 @media (min-width: 720px) {
   .delorean-hero {
     grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr);
@@ -534,5 +688,16 @@ button[type="submit"]:active {
 
   .management-tools {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Vehicle detail side-by-side layout on large screens */
+  .vehicle-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .vehicle-detail-image,
+  .vehicle-detail-info {
+    flex: 1;
   }
 }

@@ -99,4 +99,57 @@ Util.buildClassificationList = async function (classification_id = null) {
   return classificationList;
 };
 
+/* ****************************************
+ * Build the vehicle detail HTML
+ * **************************************** */
+Util.buildVehicleDetail = function (vehicle) {
+  if (!vehicle) {
+    return '<p class="notice">Sorry, vehicle not found.</p>';
+  }
+
+  // Format price with currency symbol and commas
+  const price = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(vehicle.inv_price);
+
+  // Format mileage with commas
+  const miles = new Intl.NumberFormat('en-US').format(vehicle.inv_miles);
+
+  let detail = '<div class="vehicle-detail">';
+  
+  // Image section
+  detail += '<div class="vehicle-detail-image">';
+  detail += '<img src="' + vehicle.inv_image + '" alt="' + vehicle.inv_make + ' ' + vehicle.inv_model + '">';
+  detail += '</div>';
+  
+  // Info section
+  detail += '<div class="vehicle-detail-info">';
+  
+  // Price (prominent)
+  detail += '<p class="vehicle-price">' + price + '</p>';
+  
+  // Key details
+  detail += '<div class="vehicle-specs">';
+  detail += '<p><strong>Year:</strong> ' + vehicle.inv_year + '</p>';
+  detail += '<p><strong>Make:</strong> ' + vehicle.inv_make + '</p>';
+  detail += '<p><strong>Model:</strong> ' + vehicle.inv_model + '</p>';
+  detail += '<p><strong>Mileage:</strong> ' + miles + ' miles</p>';
+  detail += '<p><strong>Color:</strong> ' + vehicle.inv_color + '</p>';
+  detail += '</div>';
+  
+  // Description
+  detail += '<div class="vehicle-description">';
+  detail += '<h3>Description</h3>';
+  detail += '<p>' + vehicle.inv_description + '</p>';
+  detail += '</div>';
+  
+  detail += '</div>'; // close info
+  detail += '</div>'; // close detail
+  
+  return detail;
+};
+
 module.exports = Util;

@@ -7,6 +7,9 @@ const validate = require("../utilities/validation");
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
 
+// Route to build vehicle detail view
+router.get("/detail/:inv_id", invController.buildVehicleDetail);
+
 // Route to build management view
 router.get("/", invController.buildManagement);
 
