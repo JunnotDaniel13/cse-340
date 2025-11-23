@@ -253,6 +253,276 @@ footer {
   font-size: 0.95rem;
 }
 
+/* ===================================
+   Inventory Management Styles
+   =================================== */
+
+/* Flash Messages */
+.notice,
+.notice ul {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  background: #d1ecf1;
+  border: 2px solid #0c5460;
+  color: #0c5460;
+  font-weight: 600;
+  list-style: none;
+}
+
+.notice ul {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.notice li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.notice li::before {
+  content: "⚠";
+  position: absolute;
+  left: 0;
+  font-size: 1.1rem;
+}
+
+/* Management Dashboard */
+.management-container h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--color-brand);
+  margin-bottom: 0.5rem;
+}
+
+.management-container > p {
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.management-container h2 {
+  color: var(--color-brand);
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-brand-light);
+}
+
+.management-tools {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 1.5rem;
+}
+
+.management-tools li {
+  list-style: none;
+}
+
+.management-tools a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--color-brand) 0%, #2a2657 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 200ms ease;
+  box-shadow: 0 8px 20px rgba(22, 20, 58, 0.25);
+  border: 2px solid transparent;
+}
+
+.management-tools a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(22, 20, 58, 0.35);
+  background: linear-gradient(135deg, #2a2657 0%, var(--color-brand) 100%);
+  border-color: var(--color-brand-light);
+}
+
+.management-tools a::before {
+  content: "➕";
+  margin-right: 0.75rem;
+  font-size: 1.3rem;
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-container h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--color-brand);
+  margin-bottom: 1rem;
+}
+
+.form-container > p,
+.form-container > strong {
+  display: block;
+  background: #fff3cd;
+  border: 2px solid #856404;
+  color: #856404;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+form {
+  background: var(--color-panel);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border: 3px solid #d3dae7;
+  box-shadow: 0 4px 12px rgba(22, 20, 58, 0.1);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-brand-light);
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-brand);
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 150ms ease;
+  background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-brand-light);
+  box-shadow: 0 0 0 3px rgba(0, 169, 217, 0.15);
+}
+
+input[type="text"]:invalid:not(:placeholder-shown),
+input[type="number"]:invalid:not(:placeholder-shown) {
+  border-color: #e53e3e;
+  background: #fff5f5;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2316143a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+button[type="submit"] {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-brand-light) 0%, #0090b8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 8px 20px rgba(0, 169, 217, 0.35);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 169, 217, 0.45);
+  background: linear-gradient(135deg, #0090b8 0%, var(--color-brand-light) 100%);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Inventory Grid Display */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  margin: 2rem 0;
+  list-style: none;
+}
+
+#inv-display li {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  transition: all 200ms ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(22, 20, 58, 0.15);
+  border-color: var(--color-brand-light);
+}
+
+#inv-display img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+#inv-display .namePrice {
+  padding-top: 0.5rem;
+}
+
+#inv-display h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+#inv-display span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-brand-light);
+  margin-top: 0.5rem;
+}
+
 @media (min-width: 720px) {
   .delorean-hero {
     grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr);
@@ -260,5 +530,9 @@ footer {
 
   .info-panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .management-tools {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -1,11 +1,13 @@
-<% if (title) { %>
-<h1><%= title %></h1>
-<% } %>
+<div class="management-container">
+  <% if (title) { %>
+  <h1><%= title %></h1>
+  <% } %>
 
-<p>Use this page to manage the inventory.</p>
+  <p>Use this page to manage the inventory.</p>
 
-<h2>Inventory Management Tools</h2>
-<ul>
-  <li><a href="/inv/add-classification" title="Add a new classification">Add New Classification</a></li>
-  <li><a href="/inv/add-inventory" title="Add a new inventory item">Add New Inventory Item</a></li>
-</ul>
+  <h2>Inventory Management Tools</h2>
+  <ul class="management-tools">
+    <li><a href="/inv/add-classification" title="Add a new classification">Add New Classification</a></li>
+    <li><a href="/inv/add-inventory" title="Add a new inventory item">Add New Inventory Item</a></li>
+  </ul>
+</div>
